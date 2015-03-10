@@ -20,6 +20,7 @@ def log(job, msg):
     with open(logfile, "a") as f:
         f.write(st + " " + msg + "\n")
 
+# Get a job to process
 queue = os.listdir(queuedir)
 try:
     job = queue[0]
