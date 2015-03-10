@@ -43,7 +43,7 @@ with open(os.path.join(processingdir, job)) as f:
 output_vidpath = os.path.join(videodir, filename + ".mp4")
 
 # Encode file and write output to logfile
-encode_command = ['/usr/bin/avconv', '-i', input_vidpath , '-c:v', 'libx264', '-strict', 'experimental', output_vidpath]
+encode_command = ['/usr/bin/avconv', '-i', input_vidpath, '-y', '-c:v', 'libx264', '-strict', 'experimental', output_vidpath]
 log(job, str(encode_command))
 encodeprocess = subprocess.Popen(encode_command, stderr=open(logfile, "a"), stdout=open(logfile, "a"))
 returncode = encodeprocess.wait()
