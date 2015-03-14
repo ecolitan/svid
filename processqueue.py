@@ -7,6 +7,9 @@ import shutil
 import time
 import datetime
 
+if os.getloadavg()[1] > 4:
+    sys.exit(3)
+
 basedir = "/var/www/streamer.ecolitan.net.nz"
 queuedir = os.path.join(basedir, "queue")
 processingdir = os.path.join(basedir, "processing")
