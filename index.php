@@ -39,7 +39,7 @@ if (isset($_POST['delete'])) {
 }
 
 //path,filename,size(bytes)
-$all_files = explode("\n", shell_exec('find /home/transmission -type f -printf "%h,%f,%s\n"'));
+$all_files = explode("\n", shell_exec('find /home/transmission -type f -exec ./test_if_video.sh \{\} \; -printf "%h,%f,%s\n"'));
 foreach ($all_files as $fstring) {
   if ($fstring != '') {
     $farray = explode(',', $fstring);
